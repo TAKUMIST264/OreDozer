@@ -1,0 +1,627 @@
+<!doctype html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta
+        name="description"
+        content="Ore Dozerの遊び方、アプリ内購入、広告、購入の復元、不具合に関するサポート情報です。">
+    <meta name="theme-color" content="#0b57d0">
+
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="ja_JP">
+    <meta property="og:site_name" content="Ore Dozer">
+    <meta property="og:title" content="Ore Dozer サポート">
+    <meta
+        property="og:description"
+        content="Ore Dozerのよくある質問とお問い合わせ窓口をご案内します。">
+    <meta
+        property="og:url"
+        content="https://takumist264.github.io/OreDozer/support.html">
+
+    <link
+        rel="canonical"
+        href="https://takumist264.github.io/OreDozer/support.html">
+
+    <title>Ore Dozer サポート</title>
+
+    <style>
+        :root {
+            color-scheme: light;
+            --background: #f5f7fa;
+            --surface: #ffffff;
+            --text: #1f2933;
+            --subtext: #52606d;
+            --border: #d9e2ec;
+            --accent: #0b57d0;
+            --accent-hover: #0848ad;
+            --notice-background: #eef4ff;
+            --warning-background: #fff8e6;
+            --warning-border: #b7791f;
+            --shadow: 0 16px 40px rgb(31 41 51 / 8%);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            background: var(--background);
+            color: var(--text);
+            font-family:
+                -apple-system,
+                BlinkMacSystemFont,
+                "Hiragino Sans",
+                "Yu Gothic",
+                "Meiryo",
+                sans-serif;
+            font-size: 16px;
+            line-height: 1.8;
+        }
+
+        a {
+            color: var(--accent);
+            text-underline-offset: 3px;
+        }
+
+        a:hover {
+            color: var(--accent-hover);
+        }
+
+        a:focus-visible,
+        summary:focus-visible {
+            outline: 3px solid var(--accent);
+            outline-offset: 3px;
+        }
+
+        .skip-link {
+            position: fixed;
+            z-index: 10;
+            top: 12px;
+            left: 12px;
+            padding: 8px 12px;
+            background: var(--surface);
+            border: 2px solid var(--accent);
+            border-radius: 6px;
+            transform: translateY(-160%);
+        }
+
+        .skip-link:focus {
+            transform: translateY(0);
+        }
+
+        main {
+            width: min(920px, calc(100% - 32px));
+            margin: 32px auto;
+            padding: 40px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+        }
+
+        header {
+            padding-bottom: 32px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        h1,
+        h2,
+        h3 {
+            line-height: 1.4;
+        }
+
+        h1 {
+            margin: 4px 0 12px;
+            font-size: clamp(2rem, 6vw, 2.8rem);
+        }
+
+        h2 {
+            margin-top: 48px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid var(--border);
+            font-size: 1.45rem;
+        }
+
+        h3 {
+            margin: 0 0 8px;
+            font-size: 1.08rem;
+        }
+
+        p,
+        li {
+            max-width: 76em;
+        }
+
+        .eyebrow,
+        .metadata {
+            color: var(--subtext);
+        }
+
+        .eyebrow {
+            margin: 0;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+        }
+
+        .lead {
+            max-width: 46em;
+            margin: 0;
+            color: var(--subtext);
+            font-size: 1.08rem;
+        }
+
+        .actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 24px;
+        }
+
+        .button {
+            display: inline-flex;
+            min-height: 44px;
+            align-items: center;
+            justify-content: center;
+            padding: 9px 18px;
+            background: var(--accent);
+            color: #ffffff;
+            border: 2px solid var(--accent);
+            border-radius: 8px;
+            font-weight: 700;
+            line-height: 1.4;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        .button:hover {
+            background: var(--accent-hover);
+            color: #ffffff;
+            border-color: var(--accent-hover);
+        }
+
+        .button.secondary {
+            background: var(--surface);
+            color: var(--accent);
+        }
+
+        .button.secondary:hover {
+            background: var(--notice-background);
+            color: var(--accent-hover);
+        }
+
+        nav {
+            margin: 28px 0 0;
+            padding: 20px 24px;
+            background: var(--notice-background);
+            border-radius: 8px;
+        }
+
+        nav h2 {
+            margin: 0 0 8px;
+            padding: 0;
+            border: 0;
+            font-size: 1.1rem;
+        }
+
+        nav ul {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 4px 28px;
+            margin: 0;
+            padding-left: 1.5rem;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 16px;
+            margin: 20px 0;
+        }
+
+        .card {
+            padding: 20px;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+        }
+
+        .card p {
+            margin: 0;
+            color: var(--subtext);
+        }
+
+        details {
+            border-bottom: 1px solid var(--border);
+        }
+
+        details:first-of-type {
+            border-top: 1px solid var(--border);
+        }
+
+        summary {
+            position: relative;
+            padding: 18px 40px 18px 0;
+            cursor: pointer;
+            font-weight: 700;
+            line-height: 1.5;
+            list-style: none;
+        }
+
+        summary::-webkit-details-marker {
+            display: none;
+        }
+
+        summary::after {
+            position: absolute;
+            top: 17px;
+            right: 8px;
+            color: var(--accent);
+            content: "+";
+            font-size: 1.4rem;
+            line-height: 1;
+        }
+
+        details[open] summary::after {
+            content: "−";
+        }
+
+        .answer {
+            padding: 0 8px 18px 0;
+        }
+
+        .answer > :first-child {
+            margin-top: 0;
+        }
+
+        .answer > :last-child {
+            margin-bottom: 0;
+        }
+
+        .notice,
+        .warning {
+            margin: 24px 0;
+            padding: 16px 20px;
+            border-left: 4px solid var(--accent);
+        }
+
+        .notice {
+            background: var(--notice-background);
+        }
+
+        .warning {
+            background: var(--warning-background);
+            border-left-color: var(--warning-border);
+        }
+
+        address {
+            margin: 20px 0;
+            font-style: normal;
+        }
+
+        footer {
+            margin-top: 48px;
+            padding-top: 24px;
+            color: var(--subtext);
+            border-top: 1px solid var(--border);
+        }
+
+        footer ul {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 4px 24px;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        @media (max-width: 640px) {
+            main {
+                width: 100%;
+                margin: 0;
+                padding: 24px 20px;
+                border: 0;
+                border-radius: 0;
+                box-shadow: none;
+            }
+
+            .cards {
+                grid-template-columns: 1fr;
+            }
+
+            .actions {
+                display: grid;
+            }
+
+            .button {
+                width: 100%;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+        }
+
+        @media print {
+            body {
+                background: #ffffff;
+            }
+
+            main {
+                width: 100%;
+                margin: 0;
+                padding: 0;
+                border: 0;
+                box-shadow: none;
+            }
+
+            .actions,
+            nav {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+<a class="skip-link" href="#main-content">本文へ移動</a>
+
+<main id="main-content">
+    <header>
+        <p class="eyebrow">TAKUMIST</p>
+        <h1>Ore Dozer サポート</h1>
+        <p class="lead">
+            「Ore Dozer」のアプリ内購入、広告、購入の復元、
+            不具合などに関するサポート情報をご案内します。
+        </p>
+
+        <div class="actions">
+            <a
+                class="button"
+                href="mailto:supportoredozer@gmail.com?subject=Ore%20Dozer%20%E3%82%B5%E3%83%9D%E3%83%BC%E3%83%88">
+                メールで問い合わせる
+            </a>
+            <a class="button secondary" href="#faq">よくある質問を見る</a>
+        </div>
+    </header>
+
+    <nav aria-label="ページ内メニュー">
+        <h2>サポートメニュー</h2>
+        <ul>
+            <li><a href="#purchase">購入と広告</a></li>
+            <li><a href="#troubleshooting">不具合への対処</a></li>
+            <li><a href="#data">アカウントとデータ</a></li>
+            <li><a href="#contact">お問い合わせ</a></li>
+        </ul>
+    </nav>
+
+    <section aria-labelledby="help-heading">
+        <h2 id="help-heading">まずお試しください</h2>
+        <div class="cards">
+            <article class="card">
+                <h3>購入が反映されない</h3>
+                <p>
+                    通信状態とストアのログイン状況を確認し、
+                    アプリを再起動してから「購入を復元」をお試しください。
+                </p>
+            </article>
+            <article class="card">
+                <h3>アプリの動作がおかしい</h3>
+                <p>
+                    アプリを完全に終了して再起動し、端末のOSと
+                    Ore Dozerが最新であることをご確認ください。
+                </p>
+            </article>
+        </div>
+    </section>
+
+    <section id="purchase" aria-labelledby="purchase-heading">
+        <h2 id="purchase-heading">購入と広告</h2>
+
+        <div class="notice">
+            「広告を削除」は買い切り型の商品です。購入すると、
+            バナー広告と自動的に表示される全画面広告が表示されなくなります。
+            報酬を増やすために利用者が任意で視聴するリワード広告は残ります。
+        </div>
+
+        <div id="faq">
+            <details>
+                <summary>「広告を削除」を購入しても、広告が表示されます</summary>
+                <div class="answer">
+                    <p>
+                        広告視聴と引き換えに追加報酬を受け取るリワード広告は、
+                        「広告を削除」の購入後も任意で利用できます。
+                        バナー広告または自動表示の全画面広告が引き続き表示される場合は、
+                        下記の手順で購入の復元をお試しください。
+                    </p>
+                </div>
+            </details>
+
+            <details>
+                <summary>購入を復元する方法を教えてください</summary>
+                <div class="answer">
+                    <ol>
+                        <li>ゲーム画面左上の歯車ボタンから「設定」を開きます。</li>
+                        <li>「購入を復元」の行にある「復元」を押します。</li>
+                        <li>処理が完了するまで、画面を閉じずにお待ちください。</li>
+                    </ol>
+                    <p>
+                        購入時と同じApple AccountまたはGoogle Playアカウントで
+                        ストアにログインし、安定した通信環境でお試しください。
+                        復元による二重課金は発生しません。
+                    </p>
+                </div>
+            </details>
+
+            <details>
+                <summary>購入したのに「広告を削除」が反映されません</summary>
+                <div class="answer">
+                    <ol>
+                        <li>端末がインターネットに接続されていることを確認します。</li>
+                        <li>購入時と同じストアアカウントでログインしていることを確認します。</li>
+                        <li>Ore Dozerを完全に終了し、もう一度起動します。</li>
+                        <li>設定画面から「購入を復元」を実行します。</li>
+                    </ol>
+                    <p>
+                        解決しない場合は、購入日時と利用しているストアを添えて
+                        お問い合わせください。注文番号を送る場合は、氏名や住所などの
+                        不要な個人情報を隠してください。
+                    </p>
+                </div>
+            </details>
+
+            <details>
+                <summary>購入のキャンセルや返金について教えてください</summary>
+                <div class="answer">
+                    <p>
+                        お支払いと返金は、購入に利用したApp StoreまたはGoogle Playが
+                        管理しています。返金をご希望の場合は、各ストアの購入履歴または
+                        公式サポートからお手続きください。
+                    </p>
+                </div>
+            </details>
+        </div>
+    </section>
+
+    <section id="troubleshooting" aria-labelledby="troubleshooting-heading">
+        <h2 id="troubleshooting-heading">不具合への対処</h2>
+
+        <details>
+            <summary>アプリが起動しない、または動作が不安定です</summary>
+            <div class="answer">
+                <ol>
+                    <li>Ore Dozerを完全に終了してから、もう一度起動します。</li>
+                    <li>端末を再起動します。</li>
+                    <li>端末のOSとOre Dozerを最新バージョンへ更新します。</li>
+                    <li>端末の空き容量が不足していないか確認します。</li>
+                </ol>
+                <p>
+                    改善しない場合は、問題が起きる直前の操作と、
+                    画面に表示されたメッセージを添えてお問い合わせください。
+                </p>
+            </div>
+        </details>
+
+        <details>
+            <summary>リワード広告を再生できません</summary>
+            <div class="answer">
+                <p>
+                    通信状態や広告の配信状況により、一時的に広告を利用できない場合があります。
+                    通信状態を確認し、しばらく時間を置いてからもう一度お試しください。
+                </p>
+            </div>
+        </details>
+
+        <div class="warning">
+            <strong>ご注意：</strong>
+            アプリを削除すると、端末内のゲームデータが削除される場合があります。
+            不具合への対処としてアンインストールする前に、まずお問い合わせください。
+        </div>
+    </section>
+
+    <section id="data" aria-labelledby="data-heading">
+        <h2 id="data-heading">アカウントとデータ</h2>
+
+        <details>
+            <summary>ログインやユーザー登録は必要ですか？</summary>
+            <div class="answer">
+                <p>
+                    必要ありません。Ore Dozerには、独自のユーザーアカウントや
+                    ログイン機能はありません。
+                </p>
+            </div>
+        </details>
+
+        <details>
+            <summary>ゲームデータはどこに保存されますか？</summary>
+            <div class="answer">
+                <p>
+                    ゲームの進行状況は端末内に保存されます。
+                    アプリの削除、端末の初期化、機種変更などにより、
+                    データを引き継げない場合があります。
+                </p>
+            </div>
+        </details>
+
+        <details>
+            <summary>利用者情報の取り扱いを確認したいです</summary>
+            <div class="answer">
+                <p>
+                    収集する情報、広告、アプリ内購入、外部サービスなどの詳細は、
+                    <a href="https://takumist264.github.io/OreDozer/privacy-policy.html">
+                        Ore Dozer プライバシーポリシー
+                    </a>
+                    をご確認ください。
+                </p>
+            </div>
+        </details>
+    </section>
+
+    <section id="contact" aria-labelledby="contact-heading">
+        <h2 id="contact-heading">お問い合わせ</h2>
+        <p>
+            よくある質問で解決しない場合は、以下のメールアドレスへご連絡ください。
+            内容を確認のうえ、必要なご案内を返信します。
+        </p>
+
+        <address>
+            <strong>運営者：</strong>TAKUMIST<br>
+            <strong>アプリ名：</strong>Ore Dozer<br>
+            <strong>メール：</strong>
+            <a href="mailto:supportoredozer@gmail.com">
+                supportoredozer@gmail.com
+            </a>
+        </address>
+
+        <h3>メールに記載していただきたい情報</h3>
+        <ul>
+            <li>お問い合わせ内容</li>
+            <li>Ore Dozerのバージョン</li>
+            <li>端末名とOSのバージョン</li>
+            <li>問題が発生するまでの操作手順</li>
+            <li>問題が発生した日時</li>
+            <li>可能であれば、画面のスクリーンショット</li>
+        </ul>
+
+        <div class="warning">
+            Apple AccountやGoogleアカウントのパスワード、クレジットカード番号、
+            認証コードなどは送信しないでください。スクリーンショットを添付する際は、
+            不要な個人情報が写っていないことをご確認ください。
+        </div>
+
+        <div class="actions">
+            <a
+                class="button"
+                href="mailto:supportoredozer@gmail.com?subject=Ore%20Dozer%20%E3%82%B5%E3%83%9D%E3%83%BC%E3%83%88">
+                supportoredozer@gmail.comへ連絡
+            </a>
+        </div>
+    </section>
+
+    <footer>
+        <ul>
+            <li>
+                <a href="https://takumist264.github.io/OreDozer/privacy-policy.html">
+                    プライバシーポリシー
+                </a>
+            </li>
+            <li>
+                <a href="https://takumist264.github.io/">
+                    TAKUMIST 開発者ウェブサイト
+                </a>
+            </li>
+        </ul>
+        <p class="metadata">
+            最終更新日：<time datetime="2026-08-09">2026年8月9日</time>
+        </p>
+        <p>&copy; 2026 TAKUMIST</p>
+    </footer>
+</main>
+</body>
+</html>
