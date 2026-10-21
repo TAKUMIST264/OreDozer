@@ -282,6 +282,11 @@
             margin-bottom: 0;
         }
 
+        .id-example {
+            white-space: pre-wrap;
+            overflow-wrap: anywhere;
+        }
+
         .notice,
         .warning {
             margin: 24px 0;
@@ -398,6 +403,7 @@
             <li><a href="#troubleshooting">不具合への対処</a></li>
             <li><a href="#language">言語の切り替え</a></li>
             <li><a href="#data">アカウントとデータ</a></li>
+            <li><a href="#purchase-data-deletion">購入データの削除依頼</a></li>
             <li><a href="#contact">お問い合わせ</a></li>
         </ul>
     </nav>
@@ -599,6 +605,120 @@
                 </p>
             </div>
         </details>
+
+        <details id="purchase-data-deletion">
+            <summary>購入に関するデータの削除を依頼したい</summary>
+            <div class="answer">
+                <p>
+                    Ore Dozerは、アプリ内購入の処理にUnity IAP（Unity Technologies）を利用しています。
+                    Unity Installation ID、Player ID、ストアの取引情報など、購入に関連する情報が
+                    Unityで処理されます。詳しくは
+                    <a href="https://takumist264.github.io/OreDozer/privacy-policy.html">プライバシーポリシー</a>
+                    をご確認ください。
+                </p>
+                <p>
+                    削除をご希望の場合は、件名を「データ削除の依頼」として、
+                    <a href="mailto:supportoredozer@gmail.com?subject=%E3%83%87%E3%83%BC%E3%82%BF%E5%89%8A%E9%99%A4%E3%81%AE%E4%BE%9D%E9%A0%BC">supportoredozer@gmail.com</a>
+                    へ次の情報をお送りください。
+                </p>
+                <ol>
+                    <li>ゲーム内でコピーしたID（Installation ID・Player ID）。<a href="#deletion-ids">IDの確認方法</a>をご覧ください。</li>
+                    <li>利用しているストア（App Store / Google Play）</li>
+                    <li>アプリ内購入をした場合は、<a href="#deletion-order-id">注文番号</a>と、おおよその購入日</li>
+                </ol>
+                <p>
+                    <a href="#deletion-identity">依頼内容と本人確認</a>が済んだ後、運営者からUnityへ削除を依頼します。
+                    Unityでの対応が完了したら、メールでお知らせします。
+                </p>
+                <p>
+                    不正防止や財務報告など、Unityが独自の管理者として扱う情報については、
+                    <a href="#deletion-unity">Unityへの直接のお問い合わせ</a>をご確認ください。
+                </p>
+                <p>
+                    ゲームの進行状況は端末内に保存されており、運営者のサーバーには保存していません。
+                </p>
+            </div>
+        </details>
+
+        <details id="deletion-ids">
+            <summary>ID（Installation ID・Player ID）を確認する方法</summary>
+            <div class="answer">
+                <ol>
+                    <li>ゲーム画面左上の歯車ボタンから「設定」を開きます。</li>
+                    <li>設定画面の下部で、「Version ◯.◯.◯」の右側にある「IDをコピー」を押します。</li>
+                    <li>「IDをコピーしました。」と表示されたら、メール本文に貼り付けて送ります。</li>
+                </ol>
+                <p>通常は次の2行がコピーされます。IDの値は端末ごとに異なります。</p>
+                <pre class="id-example"><code>Installation ID: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+Player ID: xxxxxxxxxxxxxxxxxxxxxxxx</code></pre>
+                <p>
+                    コピーした内容は編集せず、そのまま全部貼り付けてください。
+                    通信状況などにより、どちらか1行だけがコピーされる場合もあります。
+                    その場合も、コピーできた内容をそのままお送りください。
+                </p>
+                <p>
+                    「IDをまだ取得できていません。」と表示される場合は、どちらのIDも取得できていません。
+                    通信環境を確認してアプリを起動し直し、もう一度お試しください。
+                </p>
+                <div class="warning">
+                    <strong>依頼が完了するまで、アプリを削除したり、ゲームデータを初期化したりしないでください。</strong>
+                    IDが変わる可能性があります。アプリを削除する予定がある場合も、
+                    先にIDをコピーしてメールで送り、手続きの完了をお待ちください。
+                </div>
+            </div>
+        </details>
+
+        <details id="deletion-order-id">
+            <summary>購入したときの注文番号を確認する方法</summary>
+            <div class="answer">
+                <ul>
+                    <li>
+                        <strong>App Store：</strong>
+                        Appleから届いた購入時の領収書メールにある「注文番号（Order ID）」、または
+                        <a href="https://reportaproblem.apple.com/">Appleの購入履歴</a>で確認できます。
+                    </li>
+                    <li>
+                        <strong>Google Play：</strong>
+                        Googleから届いた購入時の領収書メールにある、「GPA.」で始まる注文番号をご確認ください。
+                        Google Playのプロフィールから「お支払いと定期購入」→「予算と履歴」を開くと、
+                        <a href="https://support.google.com/googleplay/answer/2850369?hl=ja">注文履歴</a>を確認できます。
+                    </li>
+                </ul>
+                <p>アプリ内購入をしていない場合、注文番号は不要です。</p>
+                <p>
+                    領収書や購入履歴の画像を送る場合は、氏名、住所、カード情報など、
+                    確認に不要な個人情報を隠してください。
+                </p>
+            </div>
+        </details>
+
+        <details id="deletion-identity">
+            <summary>削除依頼の本人確認について</summary>
+            <div class="answer">
+                <p>運営者から、ご連絡いただいたメールアドレスへ返信し、依頼内容を確認します。</p>
+                <ul>
+                    <li>購入がある場合は、お送りいただいた注文番号をストアの販売記録と照合します。</li>
+                    <li>購入がない場合は、アプリからコピーしたIDで依頼を受け付けます。</li>
+                </ul>
+                <p>確認のために、パスワード、カード番号、認証コードなどをお尋ねすることはありません。</p>
+            </div>
+        </details>
+
+        <details id="deletion-unity">
+            <summary>Unityへ直接問い合わせる場合</summary>
+            <div class="answer">
+                <p>
+                    不正防止や財務報告など、Unity Technologiesが独自の管理者として扱う情報については、
+                    <a href="mailto:unity-iap-contact@unity3d.com">unity-iap-contact@unity3d.com</a>
+                    へ直接お問い合わせください。
+                </p>
+                <p>
+                    Unityによる情報の取り扱いは、
+                    <a href="https://unity.com/legal/privacy-policy">Unityのプライバシーポリシー</a>
+                    をご確認ください。
+                </p>
+            </div>
+        </details>
     </section>
 
     <section id="contact" aria-labelledby="contact-heading">
@@ -662,7 +782,7 @@
             </li>
         </ul>
         <p class="metadata">
-            最終更新日：<time datetime="2026-10-06">2026年10月6日</time>
+            最終更新日：<time datetime="2026-10-21">2026年10月21日</time>
         </p>
         <p>&copy; 2026 TAKUMIST</p>
     </footer>
