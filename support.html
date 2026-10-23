@@ -287,6 +287,15 @@
             overflow-wrap: anywhere;
         }
 
+        .deletion-retention dt {
+            margin-top: 20px;
+            font-weight: 700;
+        }
+
+        .deletion-retention dd {
+            margin: 8px 0 20px;
+        }
+
         .notice,
         .warning {
             margin: 24px 0;
@@ -403,7 +412,7 @@
             <li><a href="#troubleshooting">不具合への対処</a></li>
             <li><a href="#language">言語の切り替え</a></li>
             <li><a href="#data">アカウントとデータ</a></li>
-            <li><a href="#purchase-data-deletion">購入データの削除依頼</a></li>
+            <li><a href="#purchase-data-deletion">データの削除依頼</a></li>
             <li><a href="#contact">お問い合わせ</a></li>
         </ul>
     </nav>
@@ -464,7 +473,7 @@
                         復元による二重課金は発生しません。
                     </p>
                     <p>
-                        復元の対象は「広告を削除」の購入です。
+                        復元の対象は、「広告を削除」を含む買い切り商品の購入権利です。
                         鉱山のレベルや所持GOLDなど、ゲームの進行状況を戻す機能ではありません。
                     </p>
                 </div>
@@ -606,13 +615,14 @@
             </div>
         </details>
 
-        <details id="purchase-data-deletion">
-            <summary>購入に関するデータの削除を依頼したい</summary>
+        <details id="purchase-data-deletion" open>
+            <summary>データの削除を依頼する方法</summary>
             <div class="answer">
                 <p>
-                    Ore Dozerは、アプリ内購入の処理にUnity IAP（Unity Technologies）を利用しています。
-                    Unity Installation ID、Player ID、ストアの取引情報など、購入に関連する情報が
-                    Unityで処理されます。詳しくは
+                    Ore Dozerでは、Unity Authenticationによる匿名認証と、
+                    Unity IAPによるアプリ内購入の処理を利用しています。
+                    Player ID、Unity Installation ID、ストアの取引情報などが
+                    Unityで処理されます。購入をしていない方も削除を依頼できます。詳しくは
                     <a href="https://takumist264.github.io/OreDozer/privacy-policy.html">プライバシーポリシー</a>
                     をご確認ください。
                 </p>
@@ -627,8 +637,10 @@
                     <li>アプリ内購入をした場合は、<a href="#deletion-order-id">注文番号</a>と、おおよその購入日</li>
                 </ol>
                 <p>
-                    <a href="#deletion-identity">依頼内容と本人確認</a>が済んだ後、運営者からUnityへ削除を依頼します。
-                    Unityでの対応が完了したら、メールでお知らせします。
+                    <a href="#deletion-identity">依頼内容と本人確認</a>が済んだ後、
+                    運営者がUnity Authenticationの管理機能で匿名認証情報を削除し、
+                    Unity IAPの購入関連データは運営者からUnityへ削除を依頼します。
+                    それぞれの対応が完了したら、削除した情報と保持が必要な情報の範囲をメールでお知らせします。
                 </p>
                 <p>
                     不正防止や財務報告など、Unityが独自の管理者として扱う情報については、
@@ -637,10 +649,59 @@
                 <p>
                     ゲームの進行状況は端末内に保存されており、運営者のサーバーには保存していません。
                 </p>
+
+                <h3 id="deletion-retention">削除の対象と保存期間</h3>
+                <dl class="deletion-retention">
+                    <dt>Unity Authenticationの匿名認証情報（Player IDなど）</dt>
+                    <dd>
+                        運営者が所定の削除手続きを行います。Unityの公式仕様では、
+                        原則として利用者または開発者が削除するまで保持されます。
+                    </dd>
+                    <dt>Unityが運営者の委託先として処理する購入・IAPデータ</dt>
+                    <dd>
+                        Unity Installation ID、Player ID、ストアの取引情報などに関連するデータについて、
+                        運営者がUnityへ削除を依頼します。Unity IAPの公式仕様では、
+                        注文情報は管理者または利用者が削除を選択するまで保持されます。
+                        Authenticationとは別に削除手続きが必要です。
+                    </dd>
+                    <dt>Unity IAPのサービスログ</dt>
+                    <dd>
+                        Unityの公式仕様での保存期間は<strong>90日間</strong>です。
+                        この期間はサービスログのもので、すべての購入データや匿名認証情報が
+                        90日以内に自動削除されることを意味しません。
+                    </dd>
+                    <dt>Unityが独自の目的で保持する取引・請求情報や技術的識別情報</dt>
+                    <dd>
+                        法令・税務・会計・監査、不正防止・セキュリティ、紛争対応のため、
+                        削除依頼後も必要な情報が保持される場合があります。
+                        保持期間は適用法令や目的により異なり、一律の日数は公表されていません。
+                        この情報の削除は、<a href="#deletion-unity">Unityへ直接お問い合わせ</a>ください。
+                    </dd>
+                    <dt>削除依頼・お問い合わせのメールと本人確認用情報</dt>
+                    <dd>
+                        メールアドレス、依頼内容、ID、注文番号などは、回答、問題解決、
+                        法令または紛争への対応に必要な期間保持します。
+                        保持する必要がなくなった後、合理的な期間内に削除します。
+                    </dd>
+                </dl>
+                <p>
+                    App Store・Google Playの購入履歴や購入権利、OSのバックアップは各事業者が別に管理します。
+                    この窓口への依頼だけで自動的に削除されるものではなく、保存期間と削除方法は
+                    各事業者の方針に従います。端末内のゲーム進行や設定は、
+                    OSのアプリデータ削除またはアンインストールで削除できます。
+                    依頼に使うIDを先に控え、不明な場合は削除前にお問い合わせください。
+                </p>
+                <p>
+                    <strong>公式情報の確認日：2026年10月24日</strong><br>
+                    <a href="https://docs.unity.com/en-us/iap/privacy-and-consent/overview">Unity IAPの削除方法・保存期間</a> ／
+                    <a href="https://docs.unity.com/en-us/authentication/privacy-and-consent/overview">Unity Authenticationの削除方法・保存期間</a> ／
+                    <a href="https://unity.com/legal/game-player-and-app-user-privacy-policy">Unityのプライバシーポリシー（10. Retention）</a> ／
+                    <a href="https://takumist264.github.io/OreDozer/privacy-policy.html#retention">Ore Dozerの保存期間と削除方針</a>
+                </p>
             </div>
         </details>
 
-        <details id="deletion-ids">
+        <details id="deletion-ids" open>
             <summary>ID（Installation ID・Player ID）を確認する方法</summary>
             <div class="answer">
                 <ol>
@@ -668,7 +729,7 @@ Player ID: xxxxxxxxxxxxxxxxxxxxxxxx</code></pre>
             </div>
         </details>
 
-        <details id="deletion-order-id">
+        <details id="deletion-order-id" open>
             <summary>購入したときの注文番号を確認する方法</summary>
             <div class="answer">
                 <ul>
@@ -692,7 +753,7 @@ Player ID: xxxxxxxxxxxxxxxxxxxxxxxx</code></pre>
             </div>
         </details>
 
-        <details id="deletion-identity">
+        <details id="deletion-identity" open>
             <summary>削除依頼の本人確認について</summary>
             <div class="answer">
                 <p>運営者から、ご連絡いただいたメールアドレスへ返信し、依頼内容を確認します。</p>
@@ -704,7 +765,7 @@ Player ID: xxxxxxxxxxxxxxxxxxxxxxxx</code></pre>
             </div>
         </details>
 
-        <details id="deletion-unity">
+        <details id="deletion-unity" open>
             <summary>Unityへ直接問い合わせる場合</summary>
             <div class="answer">
                 <p>
@@ -782,7 +843,7 @@ Player ID: xxxxxxxxxxxxxxxxxxxxxxxx</code></pre>
             </li>
         </ul>
         <p class="metadata">
-            最終更新日：<time datetime="2026-10-21">2026年10月21日</time>
+            最終更新日：<time datetime="2026-10-24">2026年10月24日</time>
         </p>
         <p>&copy; 2026 TAKUMIST</p>
     </footer>
