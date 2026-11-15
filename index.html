@@ -222,14 +222,34 @@
 
     .hero {
       position: relative;
+      overflow: hidden;
       padding: 86px 0 104px;
     }
 
+    .hero-video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      object-fit: cover;
+    }
+
     .hero-grid {
+      position: relative;
       display: grid;
       align-items: center;
       gap: 64px;
       grid-template-columns: minmax(0, 1.05fr) minmax(360px, 0.95fr);
+    }
+
+    .hero-video-toggle {
+      font: inherit;
+      cursor: pointer;
+    }
+
+    .hero-video-toggle[hidden] {
+      display: none;
     }
 
     .status {
@@ -275,14 +295,23 @@
 
     h1 {
       max-width: 720px;
-      margin-bottom: 26px;
-      font-size: clamp(2.9rem, 7vw, 5.9rem);
+      margin-bottom: 16px;
+      font-size: clamp(3rem, 6.2vw, 5.5rem);
       line-height: 1.02;
-      letter-spacing: -0.055em;
+      letter-spacing: -0.04em;
     }
 
-    h1 span {
+    h1 span,
+    .hero-tagline span {
       color: var(--gold-bright);
+    }
+
+    .hero-tagline {
+      margin-bottom: 26px;
+      font-size: clamp(2rem, 3.8vw, 3.5rem);
+      font-weight: 800;
+      line-height: 1.2;
+      letter-spacing: -0.04em;
     }
 
     .hero-description {
@@ -650,6 +679,8 @@
     }
 
     .fact-list li {
+      position: relative;
+      overflow: hidden;
       min-height: 150px;
       padding: 24px;
       border: 1px solid var(--border);
@@ -660,6 +691,24 @@
           rgba(27, 41, 53, 0.96),
           rgba(16, 25, 35, 0.82)
         );
+    }
+
+    .fact-list li::after {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 170px;
+      height: 140px;
+      background: var(--fact-image) center / cover no-repeat;
+      opacity: 0.32;
+      mask-image: radial-gradient(ellipse at 75% 25%, black 25%, transparent 75%);
+      pointer-events: none;
+      content: "";
+    }
+
+    .fact-list li > * {
+      position: relative;
+      z-index: 1;
     }
 
     .fact-list strong {
@@ -694,6 +743,8 @@
     }
 
     .game-loop li::before {
+      position: relative;
+      z-index: 1;
       display: grid;
       width: 34px;
       height: 34px;
@@ -705,6 +756,25 @@
       content: counter(loop, decimal-leading-zero);
       font-size: 0.76rem;
       font-weight: 900;
+    }
+
+    .game-loop-image {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 150px;
+      height: 135px;
+      border-top-right-radius: var(--radius-medium);
+      background: var(--loop-image) center / cover no-repeat;
+      opacity: 0.55;
+      mask-image: radial-gradient(ellipse at 75% 25%, black 25%, transparent 75%);
+      pointer-events: none;
+    }
+
+    .game-loop h3,
+    .game-loop p {
+      position: relative;
+      z-index: 1;
     }
 
     .game-loop li:not(:last-child)::after {
@@ -740,6 +810,8 @@
     }
 
     .feature-card {
+      position: relative;
+      overflow: hidden;
       padding: 30px;
       border: 1px solid var(--border);
       border-radius: var(--radius-medium);
@@ -749,6 +821,24 @@
           rgba(27, 41, 53, 0.94),
           rgba(16, 25, 35, 0.82)
         );
+    }
+
+    .feature-card::after {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 220px;
+      height: 170px;
+      background: var(--feature-image) center var(--feature-position) / 100% auto no-repeat;
+      opacity: 0.55;
+      mask-image: radial-gradient(ellipse at 75% 25%, black 25%, transparent 75%);
+      pointer-events: none;
+      content: "";
+    }
+
+    .feature-card > * {
+      position: relative;
+      z-index: 1;
     }
 
     .feature-number {
@@ -809,13 +899,20 @@
 
     .helper-card::after {
       position: absolute;
-      top: -45px;
-      right: -45px;
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      background: rgba(104, 200, 184, 0.06);
+      top: 0;
+      right: 0;
+      width: 150px;
+      height: 150px;
+      background: var(--helper-image) center / cover no-repeat;
+      opacity: 0.8;
+      mask-image: radial-gradient(ellipse at 75% 25%, black 35%, transparent 75%);
+      pointer-events: none;
       content: "";
+    }
+
+    .helper-card > * {
+      position: relative;
+      z-index: 1;
     }
 
     .helper-type {
@@ -1008,13 +1105,16 @@
     }
 
     .hero-art {
-      position: relative;
+      position: absolute;
+      top: 50%;
+      right: calc((100% - 100vw) / 2);
+      width: min(65vw, 1100px);
       overflow: hidden;
-      border: 1px solid var(--border);
-      border-radius: var(--radius-large);
-      background: var(--surface);
-      box-shadow: var(--shadow);
       aspect-ratio: 16 / 9;
+      transform: translateY(-50%);
+      mask-image: linear-gradient(to right, transparent, black 25%),
+        linear-gradient(to bottom, transparent, black 12%, black 88%, transparent);
+      mask-composite: intersect;
     }
 
     .hero-art picture,
@@ -1025,13 +1125,9 @@
       object-fit: cover;
     }
 
-    .hero-art .hero-logo {
-      position: absolute;
-      top: 5%;
-      left: 4%;
-      width: 40%;
-      height: auto;
-      filter: drop-shadow(0 6px 10px rgba(0, 0, 0, 0.45));
+    .hero-grid > div:first-child {
+      position: relative;
+      z-index: 1;
     }
 
     .store-badges {
@@ -1213,6 +1309,16 @@
         gap: 48px;
       }
 
+      .hero-art {
+        position: relative;
+        top: auto;
+        right: auto;
+        width: 100%;
+        transform: none;
+        mask-image: none;
+        border-radius: var(--radius-large);
+      }
+
       .game-loop {
         grid-template-columns: repeat(3, 1fr);
       }
@@ -1268,7 +1374,11 @@
       }
 
       h1 {
-        font-size: clamp(2.65rem, 15vw, 4rem);
+        font-size: clamp(3rem, 12vw, 4.75rem);
+      }
+
+      .hero-tagline {
+        font-size: clamp(2rem, 8vw, 2.6rem);
       }
 
       .mine-scene {
@@ -1362,6 +1472,10 @@
         scroll-behavior: auto;
       }
 
+      .hero-video {
+        display: none;
+      }
+
       *,
       *::before,
       *::after {
@@ -1411,8 +1525,12 @@
           </p>
 
           <h1>
-            押して、運んで、<span>鉱山を育てる。</span>
+            Ore <span>Dozer</span>
           </h1>
+
+          <p class="hero-tagline">
+            押して、運んで、<span>鉱山を育てる。</span>
+          </p>
 
           <p class="hero-description">
             「金とゴブリンの採掘（Gold and Goblins）」や「Idle Zombie Miner」の
@@ -1437,6 +1555,9 @@
             <a class="button button-secondary" href="#gameplay">
               ゲームの流れを見る
             </a>
+            <button class="button button-secondary hero-video-toggle" type="button" hidden>
+              背景動画を停止
+            </button>
           </div>
         </div>
 
@@ -1445,7 +1566,7 @@
             <source srcset="assets/img/key-art.webp" type="image/webp">
             <img src="assets/img/key-art.jpg" alt="Ore Dozerのキービジュアル。ドワーフがブルドーザーで鉱石を運び、仲間のモンスターが並ぶ。" width="1600" height="900">
           </picture>
-          <img class="hero-logo" src="assets/img/logo.webp" alt="" width="900" height="433">
+          <video class="hero-video" muted loop playsinline preload="none" aria-hidden="true"></video>
         </div>
       </div>
     </section>
@@ -1467,7 +1588,7 @@
         </div>
 
         <ul class="fact-list">
-          <li>
+          <li style="--fact-image: url('assets/img/loop-minecarts.webp')">
             <strong>見下ろし型3D</strong>
             <span>
               鉱石の山も、走るトロッコも、ひとつのマップに。
@@ -1475,14 +1596,14 @@
             </span>
           </li>
 
-          <li>
+          <li style="--fact-image: url('assets/img/loop-push.webp')">
             <strong>指一本の基本操作</strong>
             <span>
               指でブルドーザーを動かし、鉱石を押して運びます。
             </span>
           </li>
 
-          <li>
+          <li style="--fact-image: url('assets/img/loop-delivery.webp')">
             <strong>iOS / Android</strong>
             <span>
               App Store・Google Playで配信中です。
@@ -1624,35 +1745,40 @@
         </div>
 
         <ol class="game-loop">
-          <li>
+          <li style="--loop-image: url('assets/img/loop-push.webp')">
+            <span class="game-loop-image" aria-hidden="true"></span>
             <h3>押し集める</h3>
             <p>
               散らばった鉱石をブルドーザーでまとめます。
             </p>
           </li>
 
-          <li>
+          <li style="--loop-image: url('assets/img/loop-delivery.webp')">
+            <span class="game-loop-image" aria-hidden="true"></span>
             <h3>納品する</h3>
             <p>
               集めた鉱石を納品エリアまで運びます。
             </p>
           </li>
 
-          <li>
+          <li style="--loop-image: url('assets/img/loop-minecarts.webp')">
+            <span class="game-loop-image" aria-hidden="true"></span>
             <h3>トロッコが回収</h3>
             <p>
               積み上がった鉱石が生産ラインを流れます。
             </p>
           </li>
 
-          <li>
+          <li style="--loop-image: url('assets/img/loop-gold.webp')">
+            <span class="game-loop-image" aria-hidden="true"></span>
             <h3>GOLDを受け取る</h3>
             <p>
               マネーエリアに貯まったGOLDを回収します。
             </p>
           </li>
 
-          <li>
+          <li style="--loop-image: url('assets/img/loop-upgrade.webp')">
+            <span class="game-loop-image" aria-hidden="true"></span>
             <h3>設備を強化</h3>
             <p>
               回収したGOLDで、鉱山やブルドーザーなどを強化します。
@@ -1677,7 +1803,7 @@
         </div>
 
         <div class="feature-grid">
-          <article class="feature-card">
+          <article class="feature-card" style="--feature-image: url('assets/screens/01-ore-push.webp'); --feature-position: 62%">
             <span class="feature-number">01</span>
 
             <h3>押して、集めて、運ぶ</h3>
@@ -1689,7 +1815,7 @@
             </p>
           </article>
 
-          <article class="feature-card">
+          <article class="feature-card" style="--feature-image: url('assets/screens/08-developed-mine.webp'); --feature-position: 54%">
             <span class="feature-number">02</span>
 
             <h3>強化すると、鉱山の景色も変わる</h3>
@@ -1707,7 +1833,7 @@
             </div>
           </article>
 
-          <article class="feature-card">
+          <article class="feature-card" style="--feature-image: url('assets/screens/06-all-epic-formation.webp'); --feature-position: 24%">
             <span class="feature-number">03</span>
 
             <h3>モンスターに仕事を任せる</h3>
@@ -1719,7 +1845,7 @@
             </p>
           </article>
 
-          <article class="feature-card">
+          <article class="feature-card" style="--feature-image: url('assets/screens/02-delivery-minecarts.webp'); --feature-position: 75%">
             <span class="feature-number">04</span>
 
             <h3>離れている間も採掘</h3>
@@ -1753,7 +1879,7 @@
         </div>
 
         <div class="helper-grid">
-          <article class="helper-card">
+          <article class="helper-card" style="--helper-image: url('assets/img/helper-slime.webp')">
             <span class="helper-type">Transport</span>
             <h3>スライム</h3>
             <p class="helper-role">鉱石運搬</p>
@@ -1762,7 +1888,7 @@
             </p>
           </article>
 
-          <article class="helper-card">
+          <article class="helper-card" style="--helper-image: url('assets/img/helper-wizard.webp')">
             <span class="helper-type">Speed</span>
             <h3>ウィザード</h3>
             <p class="helper-role">トロッコ加速</p>
@@ -1771,7 +1897,7 @@
             </p>
           </article>
 
-          <article class="helper-card">
+          <article class="helper-card" style="--helper-image: url('assets/img/helper-golem.webp')">
             <span class="helper-type">Upgrade</span>
             <h3>ゴーレム</h3>
             <p class="helper-role">鉱石上位化</p>
@@ -1955,5 +2081,41 @@
       </nav>
     </div>
   </footer>
+  <script>
+    const heroVideo = document.querySelector('.hero-video');
+    const heroVideoToggle = document.querySelector('.hero-video-toggle');
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+    function startHeroVideo() {
+      heroVideo.src = 'assets/video/hero-background.mp4';
+      heroVideo.play().catch(() => {});
+    }
+
+    heroVideo.addEventListener('playing', () => {
+      heroVideoToggle.hidden = false;
+      heroVideoToggle.textContent = '背景動画を停止';
+    });
+    heroVideo.addEventListener('pause', () => {
+      heroVideoToggle.textContent = '背景動画を再生';
+    });
+    heroVideo.addEventListener('error', () => {
+      heroVideoToggle.hidden = true;
+    });
+    heroVideoToggle.addEventListener('click', () => {
+      if (heroVideo.paused) heroVideo.play().catch(() => {});
+      else heroVideo.pause();
+    });
+    reducedMotion.addEventListener('change', () => {
+      if (reducedMotion.matches) {
+        heroVideo.pause();
+        heroVideo.removeAttribute('src');
+        heroVideo.load();
+        heroVideoToggle.hidden = true;
+      } else {
+        startHeroVideo();
+      }
+    });
+    if (!reducedMotion.matches) startHeroVideo();
+  </script>
 </body>
 </html>
